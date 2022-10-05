@@ -26,8 +26,10 @@
     "fast-glob": "^3.2.12",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
+    "reflect-metadata": "^0.1.13",
     "sequelize": "^6.22.1",
     "swagger-ui-express": "^4.5.0",
+    "tsyringe": "^4.7.0",
     "validator": "^13.7.0"
   },
   "devDependencies": {
