@@ -1,19 +1,12 @@
-import { UserModel } from './../../../../../Domain/Models/UserModel'
-import { IUserModel } from './../../../../../Domain/Types'
+import User, { UserOutput } from './../../../../../Domain/Models/UserModel'
 import { IFindUserByEmailRepository } from '../../../../../Data/Interfaces/Db/User/FindUserByEmailRepository'
+import { singleton } from 'tsyringe'
 
+@singleton()
 export class FindUserByEmailMySQLRepository implements IFindUserByEmailRepository {
-  async findByEmail (email: string): Promise<IUserModel> {
+  async findByEmail (email: string): Promise<UserOutput> {
     try {
-      const foundUser = await UserModel.findOne({ where: { email } })
-      if (!foundUser) {
-        return null
-      }
-      return {
-        id: foundUser.get('id') as number,
-        email: foundUser.get('email') as string,
-        password: foundUser.get('password') as string
-      }
+      return await User.findOne({ where: { email } })
     } catch (error) {
       return error
     }

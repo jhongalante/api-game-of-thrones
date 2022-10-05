@@ -1,15 +1,14 @@
+import { FindUserByEmailMySQLRepository } from './../../../../Infra/Db/MySQL/Repository/User/FindUserByEmailMySQLRepository'
+import { UserOutput } from './../../../../Domain/Models/UserModel'
 import { IFindUserByEmailRepository } from '../../../Interfaces/Db/User/FindUserByEmailRepository'
 import { IFindUserByEmail } from '../../../../Domain/UseCases/User/FindUserByEmail'
-import { IUserModel } from '../../../../Domain/Types'
+import { inject, singleton } from 'tsyringe'
 
+@singleton()
 export class DbFindUserByEmail implements IFindUserByEmail {
-  private readonly findUserByEmailRepository: IFindUserByEmailRepository
+  constructor (@inject(FindUserByEmailMySQLRepository) private readonly findUserByEmailRepository: IFindUserByEmailRepository) {}
 
-  constructor (findUserByEmailRepository: IFindUserByEmailRepository) {
-    this.findUserByEmailRepository = findUserByEmailRepository
-  }
-
-  async findByEmail (email: string): Promise<IUserModel> {
+  async findByEmail (email: string): Promise<UserOutput> {
     return await this.findUserByEmailRepository.findByEmail(email)
   }
 }

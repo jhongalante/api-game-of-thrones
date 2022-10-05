@@ -4,6 +4,7 @@ import setupMiddlewares from './Config/Middlewares'
 import setupRoutes from './Config/Routes'
 import swaggerUi from 'swagger-ui-express'
 import swaggerJson from '../../docs/swagger-output.json'
+import 'reflect-metadata'
 
 dotenv.config()
 

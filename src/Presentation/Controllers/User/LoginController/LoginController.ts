@@ -1,21 +1,25 @@
+import { makeLoginValidation } from './../../../../Main/Factories/User/LoginValidationFactory'
+import { DbFindUserByEmail } from './../../../../Data/UseCases/User/FindUserByEmail/DbFindUserByEmail'
 import { IFindUserByEmail } from './../../../../Domain/UseCases/User/FindUserByEmail'
 import { ServerError } from '../../../Errors'
 import { badRequest, internalServerError, ok } from '../../../Helpers/Http/HttpHelpers'
 import { Controller, HttpRequest, HttpResponse } from '../../../protocols'
-import { Validation } from '../../../protocols/Validation'
 import { sign } from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 import dotenv from 'dotenv'
+import { inject, singleton } from 'tsyringe'
 
 dotenv.config()
+
+@singleton()
 export class LoginController implements Controller {
   constructor (
-    private readonly findUserByEmail: IFindUserByEmail,
-    private readonly validation: Validation) {}
+    @inject(DbFindUserByEmail) private readonly findUserByEmail: IFindUserByEmail) {}
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
-      const error = this.validation.validate(httpRequest.body)
+      const validation = makeLoginValidation()
+      const error = validation.validate(httpRequest.body)
       if (error) {
         return badRequest(error)
       }

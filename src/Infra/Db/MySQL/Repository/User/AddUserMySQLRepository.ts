@@ -1,25 +1,20 @@
-import { UserModel } from './../../../../../Domain/Models/UserModel'
-import { IUserModel } from './../../../../../Domain/Types/User/UserModel'
-import { ILoginModel } from './../../../../../Domain/Types/User/LoginModel'
-import { IAddUserRepository } from '../../../../../Data/Interfaces/Db/User/AddUserRepository'
+import User, { UserInput, UserOutput } from './../../../../../Domain/Models/UserModel'
 import bcrypt from 'bcrypt'
+import { IAddUserRepository } from '../../../../../Data/Interfaces/Db/User/AddUserRepository'
+import { singleton } from 'tsyringe'
 
+@singleton()
 export class AddUserMySQLRepository implements IAddUserRepository {
-  async add (user: ILoginModel): Promise<IUserModel> {
+  async add (user: UserInput): Promise<UserOutput> {
     try {
       const salt = bcrypt.genSaltSync(10)
       const hashPassword = await bcrypt.hash(user.password, salt)
-      const createdUser = await UserModel.create(
+      return await User.create(
         {
           email: user.email,
           password: hashPassword
         }
       )
-      return {
-        id: createdUser.get('id') as number,
-        email: createdUser.get('email') as string,
-        password: createdUser.get('password') as string
-      }
     } catch (error) {
       return error
     }
