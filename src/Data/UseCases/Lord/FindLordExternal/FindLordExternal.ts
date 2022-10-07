@@ -12,7 +12,6 @@ export class FindLordExternal implements IFindLordExternal {
         return character
       })
       .catch(error => {
-        console.log(error.response)
         throw new Error(error)
       })
     return lord

@@ -1,5 +1,5 @@
-import { IHouseModel } from './../../../../Domain/Types/HouseModel'
+import { IHouse, IHouseInput } from './../../../../Domain/Models/House'
 
 export interface IAddHouseRepository {
-  add (user: IHouseModel): Promise<IHouseModel>
+  add (user: IHouseInput): Promise<IHouse>
 }

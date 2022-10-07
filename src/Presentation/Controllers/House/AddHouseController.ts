@@ -22,9 +22,8 @@ export class AddHouseController implements Controller {
         return badRequest(error)
       }
 
-      const { name, region, yearFundation, lordName } = httpRequest.body
-      const foundLord = await this.findLordExternal.find(lordName)
-      console.log(foundLord)
+      const { name, region, yearFundation, actualLordName } = httpRequest.body
+      const foundLord = await this.findLordExternal.find(actualLordName)
       if (!foundLord) {
         return badRequest('Lord informado não existe na base de personagens.')
       }

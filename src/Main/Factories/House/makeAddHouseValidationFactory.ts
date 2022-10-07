@@ -6,7 +6,7 @@ import { Validation } from '../../../Presentation/protocols/Validation'
 
 export const makeAddHouseValidation = (): ValidationComposite => {
   const validations: Validation[] = []
-  for (const field of ['name', 'region', 'yearFundation', 'lordName']) {
+  for (const field of ['name', 'region', 'yearFundation', 'actualLordName']) {
     validations.push(new RequiredFieldValidation(field))
   }
   return new ValidationComposite(validations)
