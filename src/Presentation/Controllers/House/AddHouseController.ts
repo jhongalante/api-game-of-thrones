@@ -6,7 +6,7 @@ import { inject, singleton } from 'tsyringe'
 import { Controller, HttpRequest, HttpResponse } from '../../protocols'
 import { ServerError } from '../../Errors'
 import { badRequest, ok, internalServerError } from '../../Helpers/Http/HttpHelpers'
-import { makeAddHouseValidation } from '../../../Main/Factories/House/makeAddHouseValidationFactory'
+import { makeAddHouseValidationFactory } from '../../../Main/Factories/House/makeAddHouseValidationFactory'
 
 @singleton()
 export class AddHouseController implements Controller {
@@ -16,7 +16,7 @@ export class AddHouseController implements Controller {
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
-      const validation = makeAddHouseValidation()
+      const validation = makeAddHouseValidationFactory()
       const error = validation.validate(httpRequest.body)
       if (error) {
         return badRequest(error)
