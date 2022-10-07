@@ -1,4 +1,4 @@
-import { MongoHelper } from './../Infra/Db/Mongo/MongoHelper'
+import { MongoHelper } from '../Infra/Db/Mongo/MongoHelper'
 import dotenv from 'dotenv'
 import swaggerUi from 'swagger-ui-express'
 import swaggerJson from '../../docs/swagger-output.json'

@@ -1,8 +1,8 @@
 import { IFindUserByEmailRepository } from '../../../Interfaces/Db/User/FindUserByEmailRepository'
 import { IFindUserByEmail } from '../../../../Domain/UseCases/User/FindUserByEmail'
 import { inject, singleton } from 'tsyringe'
-import { IUserOutput } from '../../../../Domain/Models/User'
 import { FindUserByEmailMongoRepository } from '../../../../Infra/Db/Mongo/Repository/User/FindUserByEmailMongoRepository'
+import { IUserOutput } from '../../../../Domain/Models/User'
 
 @singleton()
 export class DbFindUserByEmail implements IFindUserByEmail {

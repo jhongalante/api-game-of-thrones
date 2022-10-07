@@ -1,5 +1,5 @@
-import { LoginController } from './../../Presentation/Controllers/User/LoginController/LoginController'
-import { RegisterUserController } from './../../Presentation/Controllers/User/RegisterUser/RegisterUserController'
+import { LoginController } from '../../Presentation/Controllers/User/LoginController'
+import { RegisterUserController } from '../../Presentation/Controllers/User/RegisterUserController'
 import { adaptRoute } from '../Adapters/Express/ExpressRouteAdapters'
 import { Router } from 'express'
 import { container } from 'tsyringe'

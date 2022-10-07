@@ -1,7 +1,7 @@
 import { IFindLordExternal } from './../../../../Domain/UseCases/Lord/FindLordExternalUseCase'
 import { singleton } from 'tsyringe'
 import axios from 'axios'
-import { ILordExternal } from '../../../../Domain/Models'
+import { ILordExternal } from '../../../../Domain/Models/Lord'
 
 @singleton()
 export class FindLordExternal implements IFindLordExternal {

@@ -1,3 +1,4 @@
+import { created } from './../../Helpers/Http/HttpHelpers'
 import { IFindLordExternal } from './../../../Domain/UseCases/Lord/FindLordExternalUseCase'
 import { FindLordExternal } from './../../../Data/UseCases/Lord/FindLordExternal/FindLordExternal'
 import { IAddHouse } from './../../../Domain/UseCases/House/AddHouse'
@@ -5,7 +6,7 @@ import { DbAddHouse } from '../../../Data/UseCases/House/DbAddHouse/DbAddHouse'
 import { inject, singleton } from 'tsyringe'
 import { Controller, HttpRequest, HttpResponse } from '../../protocols'
 import { ServerError } from '../../Errors'
-import { badRequest, ok, internalServerError } from '../../Helpers/Http/HttpHelpers'
+import { badRequest, internalServerError } from '../../Helpers/Http/HttpHelpers'
 import { makeAddHouseValidationFactory } from '../../../Main/Factories/House/makeAddHouseValidationFactory'
 
 @singleton()
@@ -38,7 +39,7 @@ export class AddHouseController implements Controller {
         }
       })
 
-      return ok(houseCreated)
+      return created(houseCreated)
     } catch (error) {
       console.error(error)
       return internalServerError(new ServerError(error))
