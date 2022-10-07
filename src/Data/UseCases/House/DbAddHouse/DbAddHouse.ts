@@ -1,4 +1,4 @@
-import { IHouse, IHouseInput } from './../../../../Domain/Models/House'
+import { IHouse, IHouseInput } from '../../../../Domain/Models/House'
 import { inject, singleton } from 'tsyringe'
 import { IAddHouse } from '../../../../Domain/UseCases/House/AddHouse'
 import { IAddHouseRepository } from '../../../Interfaces/Db/House/AddHouseRepository'

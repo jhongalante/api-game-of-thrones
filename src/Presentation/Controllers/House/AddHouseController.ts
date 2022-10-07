@@ -1,7 +1,7 @@
 import { IFindLordExternal } from './../../../Domain/UseCases/Lord/FindLordExternalUseCase'
 import { FindLordExternal } from './../../../Data/UseCases/Lord/FindLordExternal/FindLordExternal'
 import { IAddHouse } from './../../../Domain/UseCases/House/AddHouse'
-import { DbAddHouse } from './../../../Data/UseCases/House/AddHouse/DbAddHouse'
+import { DbAddHouse } from '../../../Data/UseCases/House/DbAddHouse/DbAddHouse'
 import { inject, singleton } from 'tsyringe'
 import { Controller, HttpRequest, HttpResponse } from '../../protocols'
 import { ServerError } from '../../Errors'
