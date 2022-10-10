@@ -36,7 +36,7 @@
 ## Pontos de melhoria:
 - Implementar search e sort na rota de list de house;
 
-- Escrever testes de integração para os usecases que trabalham com a api externa;
+- Escrever testes de integração para os usecases que trabalham com a api externa e os repositórios;
 
 - Escrever testes unitários para os controladores;
 
