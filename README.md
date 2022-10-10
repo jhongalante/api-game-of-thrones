@@ -34,6 +34,10 @@
 ## Pontos de melhoria:
 - Implementar search e sort na rota de list de house;
 
+- Escrever testes de integração para os usecases que trabalham com a api externa;
+
+- Escrever testes unitários para os controladores;
+
 - Criação de um arquivo dockerfile e docker compose para criação de container Docker;
 
 
