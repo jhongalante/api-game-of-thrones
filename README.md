@@ -44,10 +44,11 @@
 npm install
 ```
 ```
+Create a database at MongoDB
+```
+```
 Rename .env.example to .env and set the database information
 ```
-
-### Create database at MongoDB
 
 ### Run Server nodemon
 ```
@@ -59,4 +60,5 @@ npm run dev
 npm run test
 ```
 
-#### Create a user at the route '/user' and generate it's token to use it at the header of the other routes
+
+## Create a user at the route '/user' and generate it's token to use it at the header of the other routes
