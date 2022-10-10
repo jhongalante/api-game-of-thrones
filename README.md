@@ -7,7 +7,9 @@
 
 - Além disso, se torna mais fácil de criar uma aplicação com boa cobertura de testes, pois com o código desacoplado e camadas com responsabilidades bem definidas, os testes acabam se tornando mais fáceis e naturais de serem escritos, e por consequência, de aplicar o próprio TDD;
 
-- Essa arquitetura também me facilitou na própria aplicação dos conceitos do SOLID, pois facilitaram a definição de classes e camadas com responsabilidades únicas, a criação de extensões para as classes base, criação de interfaces bem granuladas e além da própria inversão de dependência e injeção de dependência com o auxílio das factories;
+- Essa arquitetura também me facilitou na própria aplicação dos conceitos do SOLID, pois facilitaram a definição de classes e camadas com responsabilidades únicas, a criação de extensões para as classes base, criação de interfaces bem granuladas e além da própria inversão de dependência e injeção de dependência com o auxílio da lib do tsyringe;
+
+- Desenvolvi as funcionalidades seguindo o Gitflow, criando branches para cada funcionalidade e commitando seguindo o mesmo.
 
 - E utilizei um padrão de testes com sut e stubs, para tornar os testes mais padronizados e de mais fácil manutenção, além de facilitar o desenvolvimento de novos testes;
 
