@@ -7,16 +7,6 @@
   },
   "host": "localhost:3000",
   "basePath": "/api",
-  "tags": [
-    {
-      "name": "Student",
-      "description": "Endpoints"
-    }
-  ],
-  "schemes": [
-    "http",
-    "https"
-  ],
   "consumes": [
     "application/json"
   ],
@@ -24,24 +14,74 @@
     "application/json"
   ],
   "paths": {
-    "/hello-world": {
-      "get": {
-        "description": "Welcome Route with an message for the evaluators",
-        "parameters": [],
-        "responses": {}
+    "/user": {
+      "post": {
+        "summary": "Create a new user",
+        "description": "Create a new user and login",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "User information",
+            "required": true,
+            "schema": {
+                "$ref": "#/definitions/UserModel"
+            }
+        }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+              "description": "Bad Request"
+          },
+          "500": {
+              "description": "Internal Server Error"
+          }
+        }
       }
     },
-    "/student": {
+    "/user/login": {
       "post": {
-        "description": "Route to add a new student",
+        "summary": "Login",
+        "description": "Login a user and generate it's token",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "User information",
+            "required": true,
+            "schema": {
+                "$ref": "#/definitions/UserModel"
+            }
+        }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok"
+          },
+          "400": {
+              "description": "Bad Request"
+          },
+          "500": {
+              "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/house": {
+      "post": {
+        "summary": "Create a new house",
+        "description": "Route to add a new house",
         "parameters": [
             {
                 "name": "obj",
                 "in": "body",
-                "description": "Student Information",
+                "description": "House Information",
                 "required": true,
                 "schema": {
-                    "$ref": "#/definitions/AddStudent"
+                    "$ref": "#/definitions/AddHouse"
                 }
             }
         ],
@@ -57,38 +97,60 @@
             }
         }
       },
-      "put": {
-        "description": "Route to update a student's registration",
+      "get": {
+        "summary": "Find or list the houses",
+        "description": "Route to return all houses or some specific one",
         "parameters": [
             {
-                "name": "obj",
-                "in": "body",
-                "description": "Student Information to Update",
-                "required": true,
-                "schema": {
-                    "$ref": "#/definitions/UpdateStudent"
+                
+                    "name": "id",
+                    "in": "query",
+                    "type": "string",
+                    "description": "Id from the house to be find",
+                    "required": false
+                },
+                {
+                    "name": "name",
+                    "in": "query",
+                    "type": "string",
+                    "description": "Name from the house to be find",
+                    "required": false
+                },
+                {
+                    "name": "page",
+                    "in": "query",
+                    "type": "string",
+                    "description": "page number from the pagination of find",
+                    "required": true
+                },
+                {
+                    "name": "pageSize",
+                    "in": "query",
+                    "type": "string",
+                    "description": "page size from the pagination of find",
+                    "required": true
                 }
-            }
         ],
         "responses": {
             "200": {
                 "description": "OK"
             },
-            "400": {
-                "description": "Bad Request"
-            },
             "500": {
                 "description": "Internal Server Error"
             }
         }
-      },
+      }
+    },
+    "/house/{id}": {
       "delete": {
-        "description": "Route to delete a student's registration",
+        "summary": "Delete a house",
+        "description": "Route to delete a house's register",
         "parameters": [
             {
-                "name": "academicRecord",
+                "name": "id",
                 "in": "path",
-                "description": "AcademicRecord from student to be deleted",
+                "type": "string",
+                "description": "Id from the house to be deleted",
                 "required": true
             }
         ],
@@ -98,71 +160,6 @@
             },
             "400": {
                 "description": "Bad Request"
-            },
-            "500": {
-                "description": "Internal Server Error"
-            }
-        }
-      },
-      "get": {
-        "description": "Route to return all students' registration from data base",
-        "parameters": [],
-        "responses": {
-            "200": {
-                "description": "OK"
-            },
-            "500": {
-                "description": "Internal Server Error"
-            }
-        }
-      }
-    },
-    "/student/{academicRecord}": {
-      "get": {
-        "description": "Route to find a student's registration by your academic record number",
-        "parameters": [
-            {
-                "name": "academicRecord",
-                "in": "path",
-                "description": "AcademicRecord from student to be found",
-                "required": true
-            }
-        ],
-        "responses": {
-            "200": {
-                "description": "OK"
-            },
-            "400": {
-                "description": "Bad Request"
-            },
-            "500": {
-                "description": "Internal Server Error"
-            }
-        }
-      }
-    },
-    "/students/pagination": {
-      "get": {
-        "description": "Route to return all students' registration from data base with pagination' system",
-        "parameters": [
-            {
-                "name": "page",
-                "in": "query",
-                "type": "number",
-                "description": "Page of paginate find all students",
-                "required": true
-            },
-            {
-                "name": "size",
-                "in": "query",
-                "type": "number",
-                "description": "Size of paginate find all students",
-                "required": true
-            }
-        ],
-        "responses": {
-            "200": {
-                "description": "OK"
             },
             "500": {
                 "description": "Internal Server Error"
@@ -172,60 +169,55 @@
     }
   },
   "definitions": {
-    "AddStudent": {
+    "AddHouse": {
         "type": "object",
         "properties": {
             "name":{
                 "type": "string",
-                "example": "Jhonata Galante"
+                "example": "Targaryen"
             },
-            "email":{
+            "region":{
                 "type": "string",
-                "example": "jhonata@teste.com"
+                "example": "Southest"
             },
-            "cpf":{
+            "yearFundation":{
                 "type": "string",
-                "example": "123.456.789-00"
+                "example": "1500"
             },
-            "academicRecord":{
+            "actualLordName":{
                 "type": "string",
-                "example": "5635687"
+                "example": "Daenerys Targaryen"
             }
         },
         "required": [
             "name",
-            "email",
-            "cpf",
-            "academicRecord"
+            "region",
+            "yearFundation",
+            "actualLordName"
         ],
         "xml":{
-            "name":"AddStudent"
+            "name":"AddHouse"
         }
     },
-    "UpdateStudent": {
-        "type": "object",
-        "properties": {
-            "name":{
-                "type": "string",
-                "example": "Jhonata Galante"
-            },
-            "email":{
-                "type": "string",
-                "example": "jhonata@teste.com"
-            },
-            "academicRecord":{
-                "type": "string",
-                "example": "5635687"
-            }
-        },
-        "required": [
-            "name",
-            "email",
-            "academicRecord"
-        ],
-        "xml":{
-            "name":"UpdateStudent"
-        }
-    }
+    "UserModel": {
+      "type": "object",
+      "properties": {
+          "email":{
+              "type": "string",
+              "example": "teste@teste.com"
+          },
+          "password":{
+              "type": "string",
+              "example": "123456"
+          }
+      },
+      "required": [
+          "email",
+          "password"
+      ],
+      "xml":{
+          "name":"UserModel"
+      }
+  }
   }
 }
