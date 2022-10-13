@@ -1,5 +1,5 @@
 import { InvalidFieldError, RequiredFieldError } from '../../Errors'
-import { Validation } from '../../protocols/Validation'
+import { Validation } from '../../Protocols/Validation'
 import { ValidationComposite } from './ValidationComposite'
 
 const makeValidationStub = (): Validation => {
