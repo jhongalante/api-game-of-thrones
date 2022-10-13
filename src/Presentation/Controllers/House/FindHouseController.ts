@@ -1,5 +1,5 @@
 import { inject, singleton } from 'tsyringe'
-import { Controller, HttpRequest, HttpResponse } from '../../protocols'
+import { Controller, HttpRequest, HttpResponse } from '../../Protocols'
 import { ServerError } from '../../Errors'
 import { ok, internalServerError } from '../../Helpers/Http/HttpHelpers'
 import { DbListHouse } from '../../../Data/UseCases/House/DbListHouse.ts/DbListHouse'

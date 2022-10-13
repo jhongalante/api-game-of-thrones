@@ -4,7 +4,7 @@ import { FindLordExternal } from './../../../Data/UseCases/Lord/FindLordExternal
 import { IAddHouse } from './../../../Domain/UseCases/House/AddHouse'
 import { DbAddHouse } from '../../../Data/UseCases/House/DbAddHouse/DbAddHouse'
 import { inject, singleton } from 'tsyringe'
-import { Controller, HttpRequest, HttpResponse } from '../../protocols'
+import { Controller, HttpRequest, HttpResponse } from '../../Protocols'
 import { ServerError } from '../../Errors'
 import { badRequest, internalServerError } from '../../Helpers/Http/HttpHelpers'
 import { makeAddHouseValidationFactory } from '../../../Main/Factories/House/makeAddHouseValidationFactory'

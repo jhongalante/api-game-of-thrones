@@ -1,5 +1,5 @@
-import { ILordExternalModel } from './../../../../Domain/Types/LordExternalModel'
+import { ILordExternal } from '../../../../Domain/Models'
 
 export interface IFindLordExternalRepository {
-  find (name: string): Promise<ILordExternalModel>
+  find (name: string): Promise<ILordExternal>
 }

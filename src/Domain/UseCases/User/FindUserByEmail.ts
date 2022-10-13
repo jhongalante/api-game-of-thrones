@@ -1,5 +1,5 @@
-import { IUserModel } from '../../Types/UserModel'
+import { IUser } from '../../Models'
 
 export interface IFindUserByEmail {
-  findByEmail (email: string): Promise<IUserModel>
+  findByEmail (email: string): Promise<IUser>
 }

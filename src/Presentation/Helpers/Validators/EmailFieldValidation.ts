@@ -1,5 +1,5 @@
 import { InvalidFieldError } from '../../Errors'
-import { Validation } from '../../protocols/Validation'
+import { Validation } from '../../Protocols/Validation'
 import validator from 'validator'
 
 export class EmailFieldValidation implements Validation {

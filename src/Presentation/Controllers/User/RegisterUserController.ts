@@ -34,7 +34,7 @@ export class RegisterUserController implements Controller {
         password
       })
       const token = sign({
-        userId: registeredUser.id,
+        userId: registeredUser._id,
         email: registeredUser.email
       },
       process.env.API_TOKEN,

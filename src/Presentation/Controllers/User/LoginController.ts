@@ -3,7 +3,7 @@ import { DbFindUserByEmail } from '../../../Data/UseCases/User/FindUserByEmail/D
 import { IFindUserByEmail } from '../../../Domain/UseCases/User/FindUserByEmail'
 import { ServerError } from '../../Errors'
 import { badRequest, internalServerError, ok } from '../../Helpers/Http/HttpHelpers'
-import { Controller, HttpRequest, HttpResponse } from '../../protocols'
+import { Controller, HttpRequest, HttpResponse } from '../../Protocols'
 import { sign } from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 import dotenv from 'dotenv'
@@ -33,7 +33,7 @@ export class LoginController implements Controller {
       }
 
       const token = sign({
-        userId: foundUser.id,
+        userId: foundUser._id,
         email: foundUser.email
       },
       process.env.API_TOKEN,
@@ -42,7 +42,7 @@ export class LoginController implements Controller {
       })
 
       return ok({
-        user: { id: foundUser.id, email: foundUser.email },
+        user: { id: foundUser._id, email: foundUser.email },
         token
       })
     } catch (error) {

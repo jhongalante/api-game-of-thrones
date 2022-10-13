@@ -1,6 +1,6 @@
 import { DbDeleteHouse } from './../../../Data/UseCases/House/DbDeleteHouse/DbDeleteHouse'
 import { inject, singleton } from 'tsyringe'
-import { Controller, HttpRequest, HttpResponse } from '../../protocols'
+import { Controller, HttpRequest, HttpResponse } from '../../Protocols'
 import { ServerError } from '../../Errors'
 import { ok, internalServerError } from '../../Helpers/Http/HttpHelpers'
 import { IDeleteHouse } from '../../../Domain/UseCases/House/DeleteHouse'

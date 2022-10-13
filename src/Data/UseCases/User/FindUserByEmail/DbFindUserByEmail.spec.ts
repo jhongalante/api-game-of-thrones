@@ -1,19 +1,20 @@
 import 'reflect-metadata'
 import { DbFindUserByEmail } from './DbFindUserByEmail'
 import { IFindUserByEmail } from './../../../../Domain/UseCases/User/FindUserByEmail'
-import { IUserOutput } from './../../../../Domain/Models/User'
+import { IUser } from './../../../../Domain/Models/User'
 import { ObjectId } from 'mongodb'
 import { IFindUserByEmailRepository } from '../../../Interfaces/Db/User/FindUserByEmailRepository'
 
 describe('DbFindUserByEmail', () => {
-  const makeAddUserOutputMock = (): IUserOutput => ({
+  const makeAddUserOutputMock = (): IUser => ({
     _id: new ObjectId('123456789101213141516171'),
-    email: 'teste@teste.com'
+    email: 'teste@teste.com',
+    password: '123456'
   })
 
   const makeFindUserByEmailRepository = (): IFindUserByEmailRepository => {
     class FindFindUserByEmailRepositoryStub implements IFindUserByEmailRepository {
-      async findByEmail (email: string): Promise<IUserOutput> {
+      async findByEmail (email: string): Promise<IUser> {
         const fakeFindedUserModel = makeAddUserOutputMock()
         return await new Promise(resolve => resolve(fakeFindedUserModel))
       }

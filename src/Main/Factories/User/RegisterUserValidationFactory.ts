@@ -3,7 +3,7 @@ import {
   RequiredFieldValidation,
   ValidationComposite
 } from '../../../Presentation/Helpers/Validators'
-import { Validation } from '../../../Presentation/protocols/Validation'
+import { Validation } from '../../../Presentation/Protocols/Validation'
 
 export const makeRegisterUserValidation = (): ValidationComposite => {
   const validations: Validation[] = []

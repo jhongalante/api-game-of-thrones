@@ -1,5 +1,5 @@
-import { UserInput, UserOutput } from './../../Models/UserModel'
+import { IUserInput, IUserOutput } from '../../Models'
 
 export interface IAddUser {
-  add (user: UserInput): Promise<UserOutput>
+  add (user: IUserInput): Promise<IUserOutput>
 }
