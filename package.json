@@ -4,8 +4,7 @@
   "description": "API do desafio da Newtail",
   "main": "app.js",
   "scripts": {
-    "start": "sucrase-node src/main/server.ts",
-    "dev": "nodemon src/main/server.ts",
+    "dev": "nodemon src/Main/Server.ts",
     "test": "jest",
     "test:verbose": "jest --passWithNoTests",
     "test:unit": "npm test -- --watch -c jest-unit-config.js"
