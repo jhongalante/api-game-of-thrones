@@ -44,6 +44,8 @@
 
 - Corrigir o problema do sucrase pra buildar o código com decorators do tsyringe.
 
+- Utilizar uma lib como "tsoa" para gerar uma documentação OpenAPI com Swagger de forma mais automatizada.
+
 ## Instructions
 ### Project setup
 ```
