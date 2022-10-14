@@ -66,5 +66,10 @@ npm run dev
 npm run test
 ```
 
-
-## Create a user at the route '/user' and generate it's token to use it at the header of the other routes
+### Security sets
+```
+Create a user at the route '/user' and copy it's token.
+```
+```
+Set the header "x-access-token" with the copied token.
+```
