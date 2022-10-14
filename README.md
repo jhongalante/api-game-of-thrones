@@ -42,7 +42,7 @@
 
 - Criação de um arquivo dockerfile e docker compose para criação de container Docker;
 
-
+- Corrigir o problema do sucrase pra buildar o código com decorators do tsyringe.
 
 ## Instructions
 ### Project setup
@@ -71,5 +71,5 @@ npm run test
 Create a user at the route '/user' and copy it's token.
 ```
 ```
-Set the header "x-access-token" with the copied token.
+Set the header "x-access-token" at the other requests with the copied token.
 ```
