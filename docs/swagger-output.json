@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "Challenge Newtail API",
-    "description": "Backend Routes' Documentation from Newtail's challenge"
+    "title": "CRUD API Game of Thrones",
+    "description": "Backend Routes' Documentation from Game of Thrones API"
   },
   "host": "localhost:3000",
   "basePath": "/api",

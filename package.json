@@ -1,7 +1,7 @@
 {
-  "name": "challenge-newtail-api",
+  "name": "api-game-of-thrones",
   "version": "1.0.0",
-  "description": "API do desafio da Newtail",
+  "description": "API de CRUD para as casas de Game of Thrones",
   "main": "app.js",
   "scripts": {
     "dev": "nodemon src/Main/Server.ts",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jhongalante/challenge-newtail-api.git"
+    "url": "git+https://github.com/jhongalante/api-game-of-thrones.git"
   },
   "author": "Jhonata Galante",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jhongalante/challenge-newtail-api/issues"
+    "url": "https://github.com/jhongalante/api-game-of-thrones/issues"
   },
-  "homepage": "https://github.com/jhongalante/challenge-newtail-api#readme",
+  "homepage": "https://github.com/jhongalante/api-game-of-thrones#readme",
   "dependencies": {
     "axios": "^1.0.0",
     "bcrypt": "^5.0.1",
