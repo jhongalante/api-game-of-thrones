@@ -42,7 +42,9 @@
 
 - Criação de um arquivo dockerfile e docker compose para criação de container Docker;
 
+- Corrigir o problema do sucrase pra buildar o código com decorators do tsyringe.
 
+- Utilizar uma lib como "tsoa" para gerar uma documentação OpenAPI com Swagger de forma mais automatizada.
 
 ## Instructions
 ### Project setup
@@ -66,5 +68,10 @@ npm run dev
 npm run test
 ```
 
-
-## Create a user at the route '/user' and generate it's token to use it at the header of the other routes
+### Security sets
+```
+Create a user at the route '/user' and copy it's token.
+```
+```
+Set the header "x-access-token" at the other requests with the copied token.
+```
