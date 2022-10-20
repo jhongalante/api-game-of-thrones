@@ -1,5 +1,5 @@
 # CRUD Game of Throne - API/NodeJS
-#### API para a aplicação de registro e manipulação de casas da série de Game of Thrones com NodeJS/Typescript, Express, MongoDB e Arquitetura em camadas.
+#### API para a aplicação de registro e manipulação de casas da série de Game of Thrones com NodeJS/Typescript, Express, MongoDB, JWT e Arquitetura em camadas.
 ## Decisão da Arquitetura Utilizada:
 - A arquitetura da API foi baseada no DDD e Arquitetura Limpa, dividido em camadas de data, domain, infra, main e presentation e segui alguns padrões da arquitetura RESTful, tentando seguir algumas regras nas nomenclaturas e nas definições de uri para as rotas, utilizando rotas com nomes iguais, alterando apenas os verbos HTTP;
 
