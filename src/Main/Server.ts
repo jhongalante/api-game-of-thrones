@@ -10,8 +10,8 @@ MongoHelper.connect(process.env.MONGO_URI)
   .then(async () => {
     const app = (await import('./Config/App')).default
     app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerJson))
-    app.listen(process.env.port, () =>
-      console.log(`Server running at http://localhost:${process.env.port}`)
+    app.listen(process.env.PORT, () =>
+      console.log(`Server running at http://localhost:${process.env.PORT}`)
     )
     console.log('DB Synced')
   })
